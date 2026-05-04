@@ -3,90 +3,74 @@
 This repository contains replication and analysis code for **"Industrial Park Location and Logistics Access in Mexico."**
 
 The project constructs a cross-sectional dataset of selected Mexican industrial parks and evaluates their proximity to two key logistics nodes:
-
-* The United States border
-* The Port of Ensenada
+- The United States border  
+- The Port of Ensenada  
 
 Using geodesic distances, the analysis builds a normalized **logistics efficiency score** to compare locations.
 
 ---
 
-## Data
+## Main Result
 
-The dataset includes industrial parks across:
-
-* Baja California (Tijuana, Mexicali)
-* Chihuahua (Ciudad Juárez)
-* Nuevo León (Monterrey / Apodaca)
-* Querétaro
-* Guanajuato (Silao / Puerto Interior)
-
-Each observation contains:
-
-* Latitude and longitude
-* Distance to U.S. border (km)
-* Distance to Ensenada port (km)
-* Composite logistics score
+![Logistics Score Ranking](outputs/logistics_score_bar.png)
 
 ---
 
 ## Methodology
 
-Distances are computed using great-circle (geodesic) distance.
+Distances are computed using great-circle (geodesic) distance between each industrial park and:
 
-A normalized logistics score is defined as:
+- U.S. border crossing (Tijuana / San Ysidro)
+- Port of Ensenada
 
-[
-Score_i = 0.7(1 - d^{B}_i) + 0.3(1 - d^{P}_i)
-]
+Distances are normalized using min–max scaling and combined into a composite score:
+
+\[
+\text{Score}_i = 0.7(1 - \tilde{d}_{iB}) + 0.3(1 - \tilde{d}_{iP})
+\]
 
 where:
-
-* ( d^{B}_i ) = normalized distance to the U.S. border
-* ( d^{P}_i ) = normalized distance to the Port of Ensenada
+- \( \tilde{d}_{iB} \): normalized distance to U.S. border  
+- \( \tilde{d}_{iP} \): normalized distance to port  
 
 Higher values indicate stronger combined logistics access.
 
 ---
 
+## Data
+
+The dataset (`data/zones.csv`) contains:
+
+- Industrial park name  
+- City and state  
+- Geographic coordinates (latitude, longitude)  
+
+Locations were manually geocoded using publicly available sources.
+
+---
+
 ## Outputs
 
-The script generates:
+The analysis generates:
 
-* `outputs/logistics_ranking.csv` — ranked industrial parks
-* `outputs/descriptive_table.csv` — cleaned summary table
-* `outputs/logistics_score_bar.png` — visualization of rankings
+- `outputs/logistics_ranking.csv` — ranked industrial parks  
+- `outputs/descriptive_table.csv` — cleaned dataset with distances  
+- `outputs/summary_distances.csv` — summary statistics  
+- `outputs/logistics_score_bar.png` — visualization of rankings  
 
 ---
 
 ## Key Findings
 
-* Border regions (Tijuana, Mexicali) rank highest due to proximity to U.S. markets
-* Interior regions (Querétaro, Guanajuato) rank lower but may benefit from domestic and cluster effects
-* Results highlight a clear north-to-interior logistics gradient
+- Border regions (Tijuana, Mexicali) exhibit the highest logistics efficiency  
+- Mid-range locations (Ciudad Juárez, Monterrey) balance multiple access points  
+- Interior regions (Querétaro, Guanajuato) rank lower due to distance from export nodes  
 
 ---
 
 ## Usage
 
-Run the analysis:
+Install dependencies:
 
 ```bash
-python analysis.py
-```
-
----
-
-## Notes
-
-This is a simplified, first-pass framework:
-
-* Industrial parks are treated as point locations
-* Only two logistics nodes are considered
-* Results are descriptive, not causal
-
----
-
-## License
-
-MIT License
+pip install pandas geopy matplotlib
