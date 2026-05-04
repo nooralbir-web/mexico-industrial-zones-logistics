@@ -74,3 +74,15 @@ Install dependencies:
 
 ```bash
 pip install pandas geopy matplotlib
+
+---
+
+## Replication
+
+To reproduce results:
+
+1. Ensure the dataset is located in `data/zones.csv`
+2. Run the analysis script:
+
+```bash
+python analysis.py
