@@ -1,0 +1,13 @@
+zone_name,city,state,dist_to_us_border_km,dist_to_ensenada_port_km,logistics_score
+FINSA Tijuana Industrial Park,Tijuana,Baja California,8.507995780255964,80.94026931260031,0.998877031741625
+FINSA Tijuana Alamar Industrial Park,Tijuana,Baja California,12.43111893611881,76.94210257367885,0.9981885744066274
+Vesta Park Tijuana,Tijuana,Baja California,6.945678531188249,80.08085133059554,0.9995234347341266
+FINSA Mexicali Industrial Park,Mexicali,Baja California,148.35192808204658,140.58874457578423,0.9436405704283359
+Intermex Industrial Park Ciudad Juarez,Ciudad Juarez,Chihuahua,1004.8798461261632,966.8656878757976,0.535338249067042
+Rio Bravo Industrial Park,Ciudad Juarez,Chihuahua,998.399526795145,960.7866672794859,0.5384012030443662
+FINSA Monterrey Industrial Park,Apodaca,Nuevo Leon,1798.915420764689,1738.0137377430913,0.15604279534870044
+Stiva Airport Industrial Park,Apodaca,Nuevo Leon,1799.1235051339959,1738.218644908753,0.15594296919297018
+Vesta Park Queretaro,Queretaro,Queretaro,2117.068932246037,2042.8809319237075,0.00469191759618821
+FINSA Queretaro Industrial Park,El Marques,Queretaro,2126.7171433378326,2052.798705025617,0.0
+Puerto Interior Industrial Park,Silao,Guanajuato,2003.5555859277858,1928.4540779085337,0.05955053923378789
+FINSA Guanajuato Industrial Park,Silao,Guanajuato,2010.94067355001,1935.8472973554763,0.055989270203942496
